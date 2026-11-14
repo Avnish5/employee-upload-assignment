@@ -1,0 +1,49 @@
+# Build output
+target/
+build/
+out/
+*.class
+*.jar
+!backend/.mvn/wrapper/maven-wrapper.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Local-only setup (never pushed)
+.local/
+docker-compose.override.yml
+*.override.yml
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.truststore
+secrets/
+
+# Runtime data
+*.log
+logs/
+employee-uploads/
+*.sqlite
+*.db
+
+# IDE / editor
+.idea/
+*.iml
+.vscode/
+*.swp
+*~
+.claude/
+CLAUDE.local.md
+
+# OS
+.DS_Store
+Thumbs.db

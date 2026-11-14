@@ -1,0 +1,43 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: employees
+      MYSQL_USER: app
+      MYSQL_PASSWORD: app
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      # TCP (127.0.0.1), not the socket: during first-run init MySQL starts a temporary
+      # socket-only server, and a socket ping would report healthy too early.
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uapp", "-papp"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+      start_period: 10s
+
+  backend:
+    build: ./backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:mysql://db:3306/employees?rewriteBatchedStatements=true
+      DB_USER: app
+      DB_PASSWORD: app
+      PRELOAD_PATH: /data/preloaded-employees.csv
+      UPLOAD_DIR: /tmp/employee-uploads
+    volumes:
+      - ./data:/data:ro
+    restart: on-failure
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+
+volumes:
+  db-data:

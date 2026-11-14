@@ -102,7 +102,7 @@ frontend/                 index.html, app.js, styles.css + nginx config (proxies
 
 - First attempt, discarded: data profiling, an early build, local-run problems. I restarted spec-first ([`ai-log.md` section 2.0](ai-log.md#20-first-attempt-discarded)).
 - `spec.md` and `plan.md`: profiling-driven rules, simulated expected outcomes, spec review
-- Build M1–M6, one commit per milestone, each run before the next
+- Build M1–M6, each milestone run before the next. Commits were split by milestone after the session, so their timestamps are approximate.
 - Docker build fixes on my network
 - Doc review, fresh-clone verification against the brief's checklist, comment cleanup
 

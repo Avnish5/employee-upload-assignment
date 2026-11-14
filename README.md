@@ -4,7 +4,7 @@ HR admins upload an employee CSV (500–50,000 rows), watch it process live, dow
 
 **Stack:** Spring Boot 3.5 (Java 21) · MySQL 8.4 · plain HTML/JS on nginx · Docker Compose
 
-Docs: [`spec.md`](spec.md) (decisions and why) · [`plan.md`](plan.md) (milestones, data model, API, tests) · [`ai-log.md`](ai-log.md) (how I used the AI) · [`ai-transcript.md`](ai-transcript.md) (full session transcript)
+Docs: [`spec.md`](spec.md) (decisions and why) · [`plan.md`](plan.md) (milestones, data model, API, tests) · [`ai-log.md`](ai-log.md) (how I used the AI)
 
 ---
 
@@ -100,7 +100,7 @@ frontend/                 index.html, app.js, styles.css + nginx config (proxies
 
 **About 3 hours in total**, within the 3-hour box.
 
-- First attempt, discarded: data profiling, an early build, local-run problems. I restarted spec-first ([`ai-log.md` section 2.0](ai-log.md#20-first-attempt-discarded-transcript-sessions-13)).
+- First attempt, discarded: data profiling, an early build, local-run problems. I restarted spec-first ([`ai-log.md` section 2.0](ai-log.md#20-first-attempt-discarded)).
 - `spec.md` and `plan.md`: profiling-driven rules, simulated expected outcomes, spec review
 - Build M1–M6, one commit per milestone, each run before the next
 - Docker build fixes on my network

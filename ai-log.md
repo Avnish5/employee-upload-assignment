@@ -1,6 +1,6 @@
 # AI Log
 
-**Tool:** Claude Code (Claude Opus 5.5) · **Full transcript:** [`ai-transcript.md`](ai-transcript.md) (every prompt and reply from all sessions, in order)
+**Tool:** Claude Code (Claude Opus 5.5)
 **Workflow:** spec-driven, after one discarded first attempt (section 2.0). I had the AI help me write [`spec.md`](spec.md) and [`plan.md`](plan.md) before any code, and every implementation prompt after that pointed back to them. I set the scope, made the decisions, and reviewed each milestone. The AI did the profiling, drafting and implementation under that direction.
 
 ---
@@ -20,10 +20,10 @@ One rule I kept to throughout: no business rule went into code until it had been
 
 ## 2. Session log
 
-### 2.0 First attempt (discarded, transcript sessions 1–3)
+### 2.0 First attempt (discarded)
 - I opened with "we need to complete this task". The AI profiled the data and started writing code, in Python, before agreeing on a plan. I stopped it and set the stack: plan first, Spring Boot + MySQL.
 - During that build I asked it to switch to JPA. When I ran the app from IntelliJ it failed to start, because MySQL was only reachable inside Docker.
-- Partway through I stopped and restarted in a new session, spec first. Everything below, and all the code in the repo, comes from that restart (transcript session 4).
+- Partway through I stopped and restarted in a new session, spec first. Everything below, and all the code in the repo, comes from that restart.
 
 ### 2.1 Profiling → identity rule (spec sections 2 and 4)
 - The profile showed that `upload-2-corrected.csv` still has 3 near-duplicate pairs: same person, mobile differs by one digit.

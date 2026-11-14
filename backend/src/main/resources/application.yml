@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: employee-upload
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/employees?rewriteBatchedStatements=true}
+    username: ${DB_USER:app}
+    password: ${DB_PASSWORD:app}
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 21MB
+  flyway:
+    enabled: true
+
+app:
+  # Loaded at startup through the same import pipeline as user uploads
+  preload-path: ${PRELOAD_PATH:../data/preloaded-employees.csv}
+  # Uploaded files are stored here until the worker has processed them
+  upload-dir: ${UPLOAD_DIR:${java.io.tmpdir}/employee-uploads}
+  chunk-size: 1000
